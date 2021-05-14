@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message OneOfFour {
+  int64 unixTime = 1;
+  oneof value {
+    string a = 2;
+    bool b = 3;
+    int32 c = 4;
+    double d = 5;
+  }
+}
