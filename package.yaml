@@ -28,6 +28,12 @@ dependencies:
 - text
 - time
 - bytestring
+- genvalidity
+- genvalidity-bytestring
+- genvalidity-hspec
+- genvalidity-text
+- hspec
+- QuickCheck
 
 library:
   source-dirs: src

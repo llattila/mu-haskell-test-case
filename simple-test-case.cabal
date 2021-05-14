@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e9b5c81fa1fd10cc5ecdd58a37a8b25e30941cf0f42b3388c61ef99fdf5eb883
+-- hash: e7994ff01d0e8ee2aa761566ce75fc35bd3122725f44067fc3018ad1888dd150
 
 name:           simple-test-case
 version:        0.1.0.0
@@ -33,9 +33,15 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , bytestring
+    , genvalidity
+    , genvalidity-bytestring
+    , genvalidity-hspec
+    , genvalidity-text
     , hashable
+    , hspec
     , mu-protobuf
     , mu-schema
     , proto3-wire
@@ -51,9 +57,15 @@ executable simple-test-case-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , bytestring
+    , genvalidity
+    , genvalidity-bytestring
+    , genvalidity-hspec
+    , genvalidity-text
     , hashable
+    , hspec
     , mu-protobuf
     , mu-schema
     , proto3-wire
@@ -66,14 +78,21 @@ test-suite simple-test-case-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      OneOfFourSpec
       Paths_simple_test_case
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , bytestring
+    , genvalidity
+    , genvalidity-bytestring
+    , genvalidity-hspec
+    , genvalidity-text
     , hashable
+    , hspec
     , mu-protobuf
     , mu-schema
     , proto3-wire

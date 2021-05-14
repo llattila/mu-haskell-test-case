@@ -34,6 +34,8 @@ import Data.Text as T
 import Data.Time.Clock
 import Data.ByteString
 import Data.ByteString.Lazy (toStrict)
+import Data.GenValidity
+import Data.GenValidity.Text ()
 
 grpc "TheSchema" id "protofile.proto"
 
@@ -43,6 +45,18 @@ data OneOfFourValue = A T.Text | B Bool | C Int32 | D Double
 data OneOfFour
     = OneOfFour { unixTime :: Int64, value :: OneOfFourValue }
      deriving (Eq, Show, Generic, ToSchema TheSchema "OneOfFour", FromSchema TheSchema "OneOfFour")
+
+instance Validity OneOfFour
+
+instance Validity OneOfFourValue
+
+instance GenValid OneOfFour where
+  genValid = genValidStructurally
+  shrinkValid = shrinkValidStructurally
+
+instance GenValid OneOfFourValue where
+  genValid = genValidStructurally
+  shrinkValid = shrinkValidStructurally
 
 toByteString :: OneOfFour -> ByteString
 toByteString oof = toStrict (ENC.toLazyByteString (toProtoViaSchema @_ @_ @TheSchema oof))
