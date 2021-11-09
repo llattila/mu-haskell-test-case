@@ -4,12 +4,13 @@ packages:
 - .
 
 extra-deps:
-  - mu-protobuf-0.4.2.0@sha256:4787a2688abdda107e150736433b61448acdf0b71eb0c174232239b4c143f78b,2119
   - compendium-client-0.2.1.1@sha256:cd477438d507273b34b82581ade333921ae997c1618b48af0c1da2a4968623e0,1203
   - http2-grpc-proto3-wire-0.1.0.0@sha256:4f6c0d27048756155b82ebf7385a20cc8241c7bd854e96d1dd6a1827e75fa410,1504
-  - mu-rpc-0.5.0.1@sha256:6ff07f30d3d8283c71852cb1fa952c9e34a7108b619ec4a92619a96835912f88,1391
   - http2-grpc-types-0.5.0.0@sha256:4d34edc06a48496130f19245817a7cd7ea15c78ac8815570c3795ffc4503cf27,1445
   - github: higherkindness/mu-haskell
     commit: 6a5ae74d07d2b2183ccbacf2846983928a5547f6
     subdirs:
           - core/schema
+          - adapter/protobuf
+          - core/rpc
+

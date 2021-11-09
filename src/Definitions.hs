@@ -62,4 +62,4 @@ toByteString :: OneOfFour -> ByteString
 toByteString oof = toStrict (ENC.toLazyByteString (toProtoViaSchema @_ @_ @TheSchema oof))
 
 fromByteString :: ByteString -> Either ParseError OneOfFour
-fromByteString = DEC.parse (fromProtoViaSchema @_ @_ @TheSchema)
+fromByteString = parseProtoViaSchema @TheSchema
